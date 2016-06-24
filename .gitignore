@@ -1,0 +1,14 @@
+.idea/*.*
+./idea/copyright/*.*
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+*.xml
+.gradle/
+gradle/
+build/
+*~
+bin/
+out/

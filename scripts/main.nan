@@ -1,0 +1,28 @@
+(>> (=> apply (-> (f x) (f x)))
+    (=> compose (-> (f g) (! (f (g #)))))
+    (=> . (-> (f g) (compose f g)))
+    (=> identity (! (#)))
+
+    (=> foldr (-> (f i xs) (? (= xs ()) (identity i) (~ ((. f fst) xs) (foldr f i (rest xs))))))
+    (=> reduce (-> (f i xs) (f (foldr f i xs))))
+    (=> map (-> (f xs) (foldr (curry ~ f) () xs)))
+
+    (=> curryIf (-> (p) (curry ? p)))
+
+    (=> inc (curry + 1))
+    (=> twice (curry * 2))
+    (=> thrice (curry * 3))
+    (=> timesThreePlusOne (curry (. inc thrice)))
+
+    (=> repeat (-> (f) (! (apply f (f #)))))
+    (=> plus2 (repeat inc))
+    (=> square (! (** #)))
+
+    (=> fibonacci (-> (a b) (~ b (fib b (+ a b)))))
+    (=> fib (-> (n) (? (< n 2) 1 (+ (fib (- n 1)) (fib (- n 2))))))
+
+
+    (=> .. (-> (a b) (? (= a b) (identity ()) (~ a (.. (+ a 1) b)))))
+    (=> ,, (-> (a b) (.. a (inc b))))
+    (=> range (-> (a b) (.. a b)))
+    (=> rangeInclusive (-> (a b) (,, a b))))
